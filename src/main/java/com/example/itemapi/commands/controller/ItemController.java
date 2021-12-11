@@ -1,9 +1,9 @@
-package com.example.itemapi.controller;
+package com.example.itemapi.commands.controller;
 
-import com.example.itemapi.commands.CreateItemCommand;
+import com.example.itemapi.commands.command.CreateItemCommand;
 import com.example.itemapi.dto.ItemDto;
 import com.example.itemapi.entity.Item;
-import com.example.itemapi.repository.ItemRepository;
+import com.example.itemapi.commands.repository.ItemRepository;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +28,7 @@ public class ItemController {
 
         CreateItemCommand createItemCommand =
                 CreateItemCommand.builder()
-                        .id(UUID.randomUUID())
+                        .id(UUID.randomUUID().toString())
                         .name(itemDto.getName())
                         .build();
 
@@ -37,8 +37,4 @@ public class ItemController {
         return result;
     }
 
-    @GetMapping("/item")
-    public Item getItem(@RequestParam String id) {
-        return itemRepository.getById(id);
-    }
 }

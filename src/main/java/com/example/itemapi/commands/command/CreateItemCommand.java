@@ -1,16 +1,14 @@
-package com.example.itemapi.commands;
+package com.example.itemapi.commands.command;
 
 import lombok.Builder;
 import lombok.Data;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
-
-import java.util.UUID;
 
 @Data
 @Builder
 public class CreateItemCommand {
 
     @TargetAggregateIdentifier
-    private UUID id;
+    private String id;
     private String name;
 }

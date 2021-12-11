@@ -1,7 +1,7 @@
-package com.example.itemapi.aggregate;
+package com.example.itemapi.commands.aggregate;
 
-import com.example.itemapi.commands.CreateItemCommand;
-import com.example.itemapi.event.ItemCreated;
+import com.example.itemapi.commands.command.CreateItemCommand;
+import com.example.itemapi.common.event.ItemCreated;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
@@ -9,13 +9,11 @@ import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 import org.springframework.beans.BeanUtils;
 
-import java.util.UUID;
-
 @Aggregate
 public class ItemAggregate {
 
     @AggregateIdentifier
-    private UUID id;
+    private String id;
     private String name;
 
     @CommandHandler

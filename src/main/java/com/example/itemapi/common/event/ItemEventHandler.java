@@ -1,7 +1,7 @@
-package com.example.itemapi.event;
+package com.example.itemapi.common.event;
 
 import com.example.itemapi.entity.Item;
-import com.example.itemapi.repository.ItemRepository;
+import com.example.itemapi.commands.repository.ItemRepository;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
